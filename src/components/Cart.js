@@ -35,7 +35,7 @@ const Cart = ({
   return (
     <div className=" bg-white mt-10 p-4">
       <div className="hero-content flex-row justify-between items-center gap-4">
-        <div className="card border border-black shrink-0 min-h-[77vh] min-w-[50vw] overflow-y-auto shadow-2xl bg-base-100 mt-10 ml-8 rounded-xl scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-300scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-300">
+        <div className="card border border-black shrink-0 max-h-[75vh] min-h-[75vh] max-w-[50vw] min-w-[50vw] overflow-y-auto shadow-2xl bg-base-100 mt-10 ml-8 rounded-xl scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-300scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-300">
           <h1 className="text-2xl font-extrabold flex justify-center  font-mono items-center p-3 m-2">
             MY CART
           </h1>
