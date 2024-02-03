@@ -67,22 +67,19 @@ const NavBar = ({
               Sign Up/Login{" "}
             </button>
           )}
-
-          {signin && (
-            <button
-              className="relative btn btn-ghost m-1 font-bold text-white justify-center items-center rounded-full"
-              onClick={handlecartclick}
-            >
-              <div class="indicator">
-                <span class="indicator-item badge badge-secondary">
-                  {totalItems > 0 && <span>{totalItems}</span>}
-                </span>
-                <div className="w-6 h-6">
-                  <img src={cart} alt="Cart Icon" />
-                </div>
+          <button
+            className="relative btn btn-ghost m-1 font-bold text-white justify-center items-center rounded-full"
+            onClick={handlecartclick}
+          >
+            <div class="indicator">
+              <span class="indicator-item badge badge-secondary">
+                {totalItems > 0 && <span>{totalItems}</span>}
+              </span>
+              <div className="w-6 h-6">
+                <img src={cart} alt="Cart Icon" />
               </div>
-            </button>
-          )}
+            </div>
+          </button>
           {signin && (
             <button
               className="btn btn-ghost m-1 font-bold text-white   rounded-full "

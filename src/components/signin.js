@@ -138,8 +138,30 @@ const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
   return (
     <div>
       {!signup && (
-        <div class="hero mt-2 min-h-screen">
+        <div class="hero min-h-screen mt-6">
           <div class="hero-content w-3/4 flex flex-col">
+            <div role="alert" class="alert alert w-full h-20 mt-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="stroke-current shrink-0 w-16 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <span className="">
+                {" "}
+                If you're using localhost you can continue else if you're on a
+                deployed site don't continue as internal JSON server was used
+                for API calls, So Deployed Site Wont work because of no backend
+                functionality.
+              </span>
+            </div>
             <div class="card shrink-0 w-full max-w-sm shadow-2xl">
               <form class="card-body">
                 <div class="form-control">
