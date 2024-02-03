@@ -6,7 +6,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [showproduct, setShowProduct] = useState(false);
   const [producttodisplay, setproducttodisplay] = useState();
-  const apiUrl = process.env.REACT_APP_API_ENDPOINT;
+  const apiUrl = process.env.REACT_APP_API_ENDPOINT || "http://localhost:8000";
 
   useEffect(() => {
     // Use a GET request when fetching data
