@@ -5,37 +5,33 @@ The images are related to various aspects of the frontend, including adding item
 
 ## Image Previews
 
-- **Add to Cart Alert:**
-
-- 
-  ![Add to Cart Alert](DemoImg/addtocartalert.png)
-
-- **Cart:**
-
-- 
-  ![Cart](DemoImg/cart.png)
-
 - **Home Page:**
 
-- 
   ![Home Page](DemoImg/home.png)
-
-- **Order:**
-
-- 
-  ![Order](DemoImg/order.png)
-
-- **Product:**
-- 
-  ![Product](DemoImg/product.png)
 
 - **Sign In:**
   ![Sign In](DemoImg/signin.png)
 
 - **Sign Up:**
-- 
-
   ![Sign Up](DemoImg/signup.png)
+
+  
+
+  - **Product:**
+  ![Product](DemoImg/product.png)
+
+- **Add to Cart Alert:**
+  ![Add to Cart Alert](DemoImg/addtocartalert.png)
+
+- **Cart:**
+  ![Cart](DemoImg/cart.png)
+
+- **Order:**
+  ![Order](DemoImg/order.png)
+
+
+
+
 
 ## Folder Structure
 
