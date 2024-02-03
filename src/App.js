@@ -4,7 +4,6 @@ import Products from "./components/products";
 import Home from "./components/home";
 
 const App = () => {
-  const [products, setProducts] = useState([]);
   const [scrolling, setScrolling] = useState(false);
   const [displayproducts, setdisplayproducts] = useState(false);
   const [displayhome, setdisplayhome] = useState(false);
@@ -26,17 +25,6 @@ const App = () => {
     };
   }, [scrolling]);
 
-  useEffect(() => {
-    const apiUrl =
-      process.env.REACT_APP_API_ENDPOINT || "http://localhost:8000";
-
-    // Fetch data when the component mounts
-    fetch(`${apiUrl}/products`)
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []); // The empty dependency array ensures that this effect runs only once on mount
-
   return (
     <>
       <div className="bg-white ">
@@ -53,7 +41,7 @@ const App = () => {
           />
         </div>
         {displayhome && <Home />}
-        {displayproducts && <Products products={products} />}
+        {displayproducts && <Products />}
         <div></div>
       </div>
     </>
