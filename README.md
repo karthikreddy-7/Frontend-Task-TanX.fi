@@ -98,6 +98,8 @@ The images are related to various aspects of the frontend, including adding item
 
 ```sh
 - Clone this repo
+- move to this project directory
+- open the terminal and use the below commands to smoothly open the app and also the server
 - npm install - To install the dependencies
 - npm run server - To start the JSON server
 - npm start - To start the react app
