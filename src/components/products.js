@@ -3,14 +3,27 @@ import { useEffect, useState } from "react";
 
 export const Products = () => {
   const [products, setProducts] = useState([]);
+  const apiUrl = process.env.REACT_APP_API_ENDPOINT || "http://localhost:8000";
+
   useEffect(() => {
-    const apiUrl =
-      process.env.REACT_APP_API_ENDPOINT || "http://localhost:8000";
-    fetch(`${apiUrl}/products`)
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []); // The empty dependency array ensures that this effect runs only once on mount
+    // Use a GET request when fetching data
+    fetch(`${apiUrl}/products`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setProducts(data);
+      })
+      .catch((error) => {});
+  }, [apiUrl]);
   return (
     <div>
       {" "}
