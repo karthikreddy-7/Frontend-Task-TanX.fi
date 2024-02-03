@@ -15,11 +15,15 @@
         },
         {
           "productId": "4",
-          "quantity": 10
+          "quantity": 11
         },
         {
           "productId": "2",
-          "quantity": 11
+          "quantity": 13
+        },
+        {
+          "productId": "1",
+          "quantity": 1
         }
       ]
     },
