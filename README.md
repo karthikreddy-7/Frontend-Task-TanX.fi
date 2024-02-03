@@ -1,9 +1,17 @@
 
-# ShopKart (Frontend Assignment TanX.fi)
+## ShopKart (Frontend Assignment TanX.fi)
 
-## Overview
+### Overview
 ShopKart is a Frontend web app build using ReactJS as an Assignment for Tanx.fi. 
-### Deployed site without Internal JSON is https://tanxfifrontend.vercel.app/
+### Deployed site without Internal JSON Server is https://tanxfifrontend.vercel.app/
+
+### Total Tech Stack Used:
+- ReactJS
+- TailwindCSS
+- DaisyUI (a tailwindCSS library for easy components making)
+- HTML
+- Internal JSON server using npm runserver
+- React Hooks and React Redux for state management
 
 
 The images are related to various aspects of the frontend, including adding items to the cart, alerts, home page, orders, products, signing in, and signing up.
