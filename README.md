@@ -77,6 +77,34 @@ The images are related to various aspects of the frontend, including adding item
 
 **On click of Close,Users will be redirected to their Home Page with updating their cart Items to Zero and adding them into their Orders History.**
 
+### Improvements I did in my submission?
+- Added a visually appealing navbar with Hover Effects
+- Indicated number of cartItems on the navbar Cart Icon real time.
+- Effectively Displayed alerts rather than just putting up an javascript alert. 
+- added functionality when there is no items in cart
+- Effectively switching between different pages.
+- Maintained a structured directory and project readilibity.
+- Used real world object or component intialization instead of using random words.
+
+### What would I have done differently if I was allocated more time?
+- I would have even added backend functionality for the deployed site using django (a python framework), I have good amount of experience of creating a django project with having different views function and also adding in sqlite models, adding these would make the webapp more real and would also allow CRUD operations.
+- I would have created more visually appealing site with sliders and dropdowns to ease the process.
+- I would have addded sessionId and cookies in order to keep the user logged for a certain period of time.
+- Authentication of User at the time of Login In/ Sign Up using two factor authorization or OTP based login entry.
+- Having Json based web tokens / tokenization of the webapp.
+- Improving the overall performance of the webapp.
+
+### Development Setup
+
+```sh
+- Clone this repo
+- npm install - To install the dependencies
+- npm run server - To start the JSON server
+- npm start - To start the react app
+```
+
+Voila, You're up. You can now view and create your unique login credentials and also able to save the products and can be visible even after refreshing the site or opening it later.
+
 
 
 
