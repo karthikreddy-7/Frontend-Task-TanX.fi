@@ -6,6 +6,7 @@ const NavBar = ({
   setdisplayhome,
   setdisplaysignin,
   setdisplaycart,
+  signin,
 }) => {
   const handleProductsClick = () => {
     setdisplayproducts(true);
@@ -55,20 +56,33 @@ const NavBar = ({
           >
             Products
           </button>
-          <button
-            className="btn btn-ghost m-1 font-bold text-white   rounded-full "
-            onClick={handleSignInClick}
-          >
-            Sign Up/Login{" "}
-          </button>
-          <button
-            className="btn btn-ghost m-1 font-bold text-white justify-center items-center rounded-full "
-            onClick={handlecartclick}
-          >
-            <div className="w-6 h-6">
-              <img src={cart} />
-            </div>
-          </button>
+          {!signin && (
+            <button
+              className="btn btn-ghost m-1 font-bold text-white   rounded-full "
+              onClick={handleSignInClick}
+            >
+              Sign Up/Login{" "}
+            </button>
+          )}
+
+          {signin && (
+            <button
+              className="btn btn-ghost m-1 font-bold text-white justify-center items-center rounded-full "
+              onClick={handlecartclick}
+            >
+              <div className="w-6 h-6">
+                <img src={cart} />
+              </div>
+            </button>
+          )}
+          {signin && (
+            <button
+              className="btn btn-ghost m-1 font-bold text-white   rounded-full "
+              onClick={handleSignInClick}
+            >
+              Logout{" "}
+            </button>
+          )}
         </div>
       </div>
     </>

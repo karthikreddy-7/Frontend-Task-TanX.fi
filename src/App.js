@@ -11,6 +11,9 @@ const App = () => {
   const [displayhome, setdisplayhome] = useState(true);
   const [displaysignin, setdisplaysignin] = useState(false);
   const [displaycart, setdisplaycart] = useState(false);
+  const [signin, setsignin] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +47,7 @@ const App = () => {
             setdisplayhome={setdisplayhome}
             setdisplaysignin={setdisplaysignin}
             setdisplaycart={setdisplaycart}
+            signin={signin}
           />
         </div>
         {displayhome && (
@@ -52,8 +56,16 @@ const App = () => {
             setdisplayhome={setdisplayhome}
           />
         )}
-        {displayproducts && <Products />}
-        {displaysignin && <Signin />}
+        {displayproducts && <Products email={email} />}
+        {displaysignin && (
+          <Signin
+            setsignin={setsignin}
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+          />
+        )}
         {displaycart && <Cart />}
         <div></div>
       </div>

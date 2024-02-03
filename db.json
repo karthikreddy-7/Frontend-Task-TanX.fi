@@ -3,7 +3,29 @@
     {
       "id": "74a6",
       "email": "ka@mail.com",
-      "password": "123"
+      "password": "123",
+      "cart": [
+        {
+          "productId": "3",
+          "quantity": 38
+        },
+        {
+          "productId": "4",
+          "quantity": 7
+        },
+        {
+          "productId": "11",
+          "quantity": 1
+        },
+        {
+          "productId": "2",
+          "quantity": 1
+        },
+        {
+          "productId": "7",
+          "quantity": 1
+        }
+      ]
     },
     {
       "id": "4f3c",

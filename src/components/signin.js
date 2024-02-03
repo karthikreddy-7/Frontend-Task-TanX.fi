@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart, addToFavorites } from "../redux/action";
 
-const Signin = () => {
+const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
+  const dispatch = useDispatch();
   const [signup, setsignup] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
   const [credentials, setcredentials] = useState("");
   const [alert, setAlert] = useState(0);
 
@@ -98,6 +100,7 @@ const Signin = () => {
         if (matchedUser) {
           // Successful login, you can set some state or perform further actions
           console.log("Login successful!");
+          setsignin(true);
           setAlert(3);
           setTimeout(() => {
             setAlert(0);
