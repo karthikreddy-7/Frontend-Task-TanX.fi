@@ -52,24 +52,31 @@ The images are related to various aspects of the frontend, including adding item
 
   ![Add to Cart Alert](DemoImg/addtocartalert.png)
 
-- **Cart:**
+**If Users Want to Take a Closer Look on the Product They Can Click on the Card Image of a specfic Product which then will be redirected to the single Produt Page,Below is the demo Implementation Image**
+
+  ![singleprod](DemoImg/singleprod.png)
+
+**Users can directly Buy or Add to cart even on the Single Product Page,They also have an option to go back to the Products Page**
+
+**When User Clicks on the Cart Page,they will redirected to the cart page where the all the items they have choosed will be displayed and now they can increase the quantity or remove the product from cart and they can also check the total price in real time even when they are changing the quantity**
+
+**Below is the Image when User have Zero Products in their Cart**
+
+  ![emptycart](DemoImg/emptycart.png)
+
+  
+**Now, Below is the Demo Image When Users Have Products in their Cart**
+
   ![Cart](DemoImg/cart.png)
 
-- **Order:**
+
+**After deciding the products and their Quantity Users can Place their Order by Clicking Place Order and on click of that users will get a modal showing success, Below is the Demo Image for said information**
+
+
   ![Order](DemoImg/order.png)
 
+**On click of Close,Users will be redirected to their Home Page with updating their cart Items to Zero and adding them into their Orders History.**
 
 
 
-
-## Folder Structure
-
-- **DemoImg/:**
-  - `addtocartalert.png`: Image for add to cart alert.
-  - `cart.png`: Image for the cart page.
-  - `home.png`: Image for the home page.
-  - `order.png`: Image for the order page.
-  - `product.png`: Image for the product page.
-  - `signin.png`: Image for the sign-in page.
-  - `signup.png`: Image for the sign-up page.
 
