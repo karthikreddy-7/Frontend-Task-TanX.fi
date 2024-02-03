@@ -21,20 +21,26 @@ ShopKart is a Frontend web app build using ReactJS as an Assignment for Tanx.fi.
 - RealTime updating of Cart items number which was done using React Redux
 - single Page application switching from different components done using Usestate and conditional rendering
 
-
+## Demo Images And Explaination
 The images are related to various aspects of the frontend, including adding items to the cart, alerts, home page, orders, products, signing in, and signing up.
 
-## Image Previews
-
-- **Home Page:**
+**Home Page/Landing Page when clicked on the site :**
 
   ![Home Page](DemoImg/home.png)
 
-- **Sign In:**
-  ![Sign In](DemoImg/signin.png)
+**After Landing to the Home Page, User can click on Sign In/ Sign Up for redirecting to Sign In Page**
+
+- If db.json file has a registered user then signin page shows alert that Mail Id has been already used else User can continue with creating their Account the following is in the below Image
+
+
+    ![Sign Up](DemoImg/signup.png)
+
+- If User enters Wrong Password / Wrong Credentials, alert will be provided stating about the Wrong Credentials depicted in the below Image
+  
+    ![Sign In](DemoImg/signin.png)
 
 - **Sign Up:**
-  ![Sign Up](DemoImg/signup.png)
+
 
   
 
