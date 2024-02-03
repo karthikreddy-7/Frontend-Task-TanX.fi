@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 export const Products = () => {
   const [products, setProducts] = useState([]);
   const apiUrl = process.env.REACT_APP_API_ENDPOINT || "http://localhost:8000";
+  console.log(apiUrl);
 
   useEffect(() => {
     // Use a GET request when fetching data
@@ -21,6 +22,7 @@ export const Products = () => {
       })
       .then((data) => {
         setProducts(data);
+        console.log(data);
       })
       .catch((error) => {});
   }, [apiUrl]);
