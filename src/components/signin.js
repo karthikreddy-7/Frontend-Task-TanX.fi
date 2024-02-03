@@ -2,9 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart, addToFavorites } from "../redux/action";
 
-const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
+const Signin = ({
+  setsignin,
+  email,
+  setEmail,
+  password,
+  setPassword,
+  setdisplayproducts,
+  setdisplayhome,
+  setdisplaysignin,
+  setdisplaycart,
+}) => {
   const dispatch = useDispatch();
-  const [signup, setsignup] = useState(false);
+  const [signupbox, setsignupbox] = useState(false);
 
   const [credentials, setcredentials] = useState("");
   const [alert, setAlert] = useState(0);
@@ -12,7 +22,7 @@ const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
   const apiUrl = process.env.REACT_APP_API_ENDPOINT || "http://localhost:8000";
 
   const handleSignUp = () => {
-    setsignup(!signup);
+    setsignupbox(!signupbox);
   };
   useEffect(() => {
     fetch(`${apiUrl}/users`, {
@@ -105,6 +115,10 @@ const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
           getdetailsfromuser({ emailId: email });
           setTimeout(() => {
             setAlert(0);
+            setdisplayhome(true);
+            setdisplayproducts(false);
+            setdisplaysignin(false);
+            setdisplaycart(false);
           }, 2500);
         } else {
           setAlert(2);
@@ -137,10 +151,10 @@ const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
 
   return (
     <div>
-      {!signup && (
-        <div class="hero min-h-screen mt-6">
+      {!signupbox && (
+        <div class="hero min-h-screen mt-2">
           <div class="hero-content w-3/4 flex flex-col">
-            <div role="alert" class="alert alert w-full h-20 mt-2">
+            <div role="alert" class="alert w-full h-20 mt-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -190,14 +204,14 @@ const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
                   <label class="label">
                     <a
                       href="#"
-                      class="label-text-alt link link-hover mt-4"
+                      class="label-text-alt link link-hover"
                       onClick={handleSignUp}
                     >
                       Create an Account?
                     </a>
                   </label>
                 </div>
-                <div class="form-control mt-6">
+                <div class="form-control">
                   <button
                     class="btn btn-ghost bg-blue-400 text-white"
                     onClick={handleLogin}
@@ -250,9 +264,31 @@ const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
           </div>
         </div>
       )}
-      {signup && (
-        <div class="hero mt-2 min-h-screen">
+      {signupbox && (
+        <div class="hero min-h-screen mt-2">
           <div class="hero-content w-3/4 flex flex-col">
+            <div role="alert" class="alert w-full h-20 mt-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="stroke-current shrink-0 w-16 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <span className="">
+                {" "}
+                If you're using localhost you can continue else if you're on a
+                deployed site don't continue as internal JSON server was used
+                for API calls, So Deployed Site Wont work because of no backend
+                functionality.
+              </span>
+            </div>
             <div class="card shrink-0 w-full max-w-sm shadow-2xl">
               <form class="card-body" onSubmit={(e) => e.preventDefault()}>
                 <div class="form-control">
@@ -281,14 +317,14 @@ const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
                   <label class="label">
                     <a
                       href="#"
-                      class="label-text-alt link link-hover mt-4"
+                      class="label-text-alt link link-hover"
                       onClick={handleSignUp}
                     >
                       Have an Account?
                     </a>
                   </label>
                 </div>
-                <div class="form-control mt-6">
+                <div class="form-control">
                   <button
                     class="btn btn-ghost bg-blue-400 text-white"
                     onClick={createAccount}

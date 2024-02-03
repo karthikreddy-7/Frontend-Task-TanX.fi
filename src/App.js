@@ -70,6 +70,7 @@ const App = () => {
             setdisplaysignin={setdisplaysignin}
             setdisplaycart={setdisplaycart}
             signin={signin}
+            setsignin={setsignin}
           />
         </div>
         {displayhome && (
@@ -86,6 +87,10 @@ const App = () => {
             setEmail={setEmail}
             password={password}
             setPassword={setPassword}
+            setdisplayproducts={setdisplayproducts}
+            setdisplayhome={setdisplayhome}
+            setdisplaysignin={setdisplaysignin}
+            setdisplaycart={setdisplaycart}
           />
         )}
         {displaycart && <Cart />}

@@ -8,6 +8,7 @@ const NavBar = ({
   setdisplaysignin,
   setdisplaycart,
   signin,
+  setsignin,
 }) => {
   const cartItems = useSelector((state) => state.cart.items);
   const totalItems = cartItems.reduce((total, item) => total + 1, 0);
@@ -34,6 +35,13 @@ const NavBar = ({
     setdisplayproducts(false);
     setdisplaysignin(false);
     setdisplaycart(true);
+  };
+  const handlelogout = () => {
+    setsignin(false);
+    setdisplayhome(true);
+    setdisplayproducts(false);
+    setdisplaysignin(false);
+    setdisplaycart(false);
   };
   return (
     <>
@@ -73,7 +81,7 @@ const NavBar = ({
           >
             <div class="indicator">
               <span class="indicator-item badge badge-secondary">
-                {totalItems > 0 && <span>{totalItems}</span>}
+                {<span>{totalItems}</span>}
               </span>
               <div className="w-6 h-6">
                 <img src={cart} alt="Cart Icon" />
@@ -83,7 +91,7 @@ const NavBar = ({
           {signin && (
             <button
               className="btn btn-ghost m-1 font-bold text-white   rounded-full "
-              onClick={handleSignInClick}
+              onClick={handlelogout}
             >
               Logout{" "}
             </button>

@@ -141,7 +141,7 @@ const Products = ({ email }) => {
     setAlert(1);
     setTimeout(() => {
       setAlert(0);
-    }, 1500);
+    }, 2500);
     const payload = {
       productId: item.id,
       quantity: 1, // or any other quantity logic you have
