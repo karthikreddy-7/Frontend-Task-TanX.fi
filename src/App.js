@@ -93,7 +93,14 @@ const App = () => {
             setdisplaycart={setdisplaycart}
           />
         )}
-        {displaycart && <Cart />}
+        {displaycart && (
+          <Cart
+            setdisplayproducts={setdisplayproducts}
+            setdisplayhome={setdisplayhome}
+            setdisplaysignin={setdisplaysignin}
+            setdisplaycart={setdisplaycart}
+          />
+        )}
         <div></div>
       </div>
     </>

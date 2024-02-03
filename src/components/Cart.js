@@ -1,13 +1,28 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const Cart = () => {
+const Cart = (
+  setdisplayproducts,
+  setdisplayhome,
+  setdisplaysignin,
+  setdisplaycart
+) => {
   const totalItems = useSelector((state) => state.totalProducts.items);
   const cartItems = useSelector((state) => state.cart.items);
+  var TotalPrice = 0;
+  const dispatch = useDispatch();
 
   // Function to get product details for a given productId
   const getProductDetails = (productId) => {
     return totalItems[0].find((item) => item.id === productId);
+  };
+
+  const handleclose = () => {
+    setdisplayhome(true);
+    setdisplayproducts(false);
+    setdisplaysignin(false);
+    setdisplaycart(false);
   };
 
   return (
@@ -19,6 +34,11 @@ const Cart = () => {
           </h1>
           {cartItems.map((cartItem) => {
             const productDetails = getProductDetails(cartItem.productId);
+            const amount = parseFloat(productDetails.amount);
+            const quantity = parseInt(cartItem.quantity);
+            console.log(amount, quantity);
+
+            TotalPrice += amount * quantity;
 
             return (
               <div key={cartItem.productId} className="flex p-4 m-2 border-b">
@@ -33,26 +53,50 @@ const Cart = () => {
                   <h2 className="text-lg font-bold p-3">
                     {productDetails.title}
                   </h2>
-                  <div className="flex flex-row gap-3 mt-2">
+                  <div className="flex flex-row  justify-center items-center gap-3 mt-2">
                     <p>Quantity:</p>
                     <button
-                      className="bg-blue-500 text-white font-extrabold px-2 py-1 mr-2"
+                      className="bg-blue-500 btn text-2xl  text-white font-extrabold  mr-2"
                       onClick={() => {
-                        // Implement logic to decrease quantity
                         if (cartItem.quantity > 1) {
+                          // Dispatch an action to decrement the quantity in the Redux store
+                          dispatch({
+                            type: "DECREASE_QUANTITY",
+                            payload: {
+                              productId: cartItem.productId,
+                            },
+                          });
                         }
                       }}
                     >
                       -
                     </button>
-                    <p> {cartItem.quantity}</p>
+                    <p className="font-bold"> {cartItem.quantity}</p>
                     <button
-                      className="bg-green-500 font-extrabold  text-white px-2 py-1"
+                      className="btn bg-green-500 font-extrabold text-2xl  text-white "
                       onClick={() => {
-                        cartItem.quantity += 1;
+                        dispatch({
+                          type: "INCREASE_QUANTITY",
+                          payload: {
+                            productId: cartItem.productId,
+                          },
+                        });
                       }}
                     >
                       +
+                    </button>
+                    <button
+                      className="btn btn-ghost bg-red-500 text-white"
+                      onClick={() => {
+                        dispatch({
+                          type: "REMOVE_FROM_CART",
+                          payload: {
+                            productId: cartItem.productId,
+                          },
+                        });
+                      }}
+                    >
+                      Remove Item
                     </button>
                   </div>
                 </div>
@@ -67,22 +111,22 @@ const Cart = () => {
             <h1 className="text-xl font-extrabold flex justify-center font-mono items-center p-2">
               Price Details
             </h1>
-            <div className="flex justify-between items-end m-2 p-1">
+            <div className="flex justify-between font-bold items-end m-2 p-1">
               <p>Price</p>
-              <p>1200</p>
+              <p>{TotalPrice}</p>
             </div>
-            <div className="flex justify-between items-end m-2 p-1">
-              <p>Discount Price</p>
-              <p>200</p>
+            <div className="flex justify-between font-bold items-end m-2 p-1">
+              <p>Discount Price (10% percent)</p>
+              <p>{TotalPrice * 0.1}</p>
             </div>
-            <div className="flex justify-between items-end m-2 p-1 ">
+            <div className="flex justify-between font-bold items-end m-2 p-1 ">
               <p>Delivery charge</p>
               <p>100</p>
             </div>
             <hr className="border-t-2 border-black m-2 p-1"></hr>
-            <div className="flex justify-between items-end m-2 p-1">
+            <div className="flex justify-between font-bold items-end m-2 p-1">
               <p>Total charge</p>
-              <p>1100</p>
+              <p>{TotalPrice - TotalPrice * 0.1 + 100}</p>
             </div>
           </div>
           <label for="my_modal_6" class="btn bg-blue-400">
@@ -95,7 +139,7 @@ const Cart = () => {
               <h3 class="font-bold text-lg">Dear Customer</h3>
               <p class="py-4">Your Order Has Been Placed Successfully</p>
               <div class="modal-action">
-                <label for="my_modal_6" class="btn">
+                <label for="my_modal_6" class="btn" onClick={handleclose}>
                   Close!
                 </label>
               </div>

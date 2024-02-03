@@ -10,13 +10,38 @@ const cartReducer = (state = initialState, action) => {
       );
 
       if (existingIndex !== -1) {
-        // Product already exists in the cart, update the quantity
         state.items[existingIndex].quantity += action.payload.quantity || 1;
       } else {
-        // Product doesn't exist, add it to the cart
         state.items = [...state.items, action.payload];
       }
       return state;
+    case "DECREASE_QUANTITY":
+      return {
+        ...state,
+        items: state.items.map((cartItem) =>
+          cartItem.productId === action.payload.productId &&
+          cartItem.quantity > 1
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
+        ),
+      };
+
+    case "INCREASE_QUANTITY":
+      return {
+        ...state,
+        items: state.items.map((cartItem) =>
+          cartItem.productId === action.payload.productId
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        ),
+      };
+    case "REMOVE_FROM_CART":
+      return {
+        ...state,
+        items: state.items.filter(
+          (cartItem) => cartItem.productId !== action.payload.productId
+        ),
+      };
 
     default:
       return state;
