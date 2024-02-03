@@ -13,7 +13,7 @@ const Cart = () => {
   return (
     <div className=" bg-white mt-10 p-4">
       <div className="hero-content flex-row justify-between items-center gap-4">
-        <div className="card border border-black shrink-0 max-h-[70vh] max-w-[50vw] overflow-y-auto shadow-2xl bg-base-100 mt-10 ml-12 rounded-xl scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-300scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-300">
+        <div className="card border border-black shrink-0 max-h-[77vh] max-w-[50vw] overflow-y-auto shadow-2xl bg-base-100 mt-10 ml-12 rounded-xl scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-300scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-300">
           <h1 className="text-2xl font-extrabold flex justify-center font-mono items-center p-3 m-2">
             MY CART
           </h1>
@@ -39,6 +39,8 @@ const Cart = () => {
                       className="bg-blue-500 text-white font-extrabold px-2 py-1 mr-2"
                       onClick={() => {
                         // Implement logic to decrease quantity
+                        if (cartItem.quantity > 1) {
+                        }
                       }}
                     >
                       -
@@ -47,7 +49,7 @@ const Cart = () => {
                     <button
                       className="bg-green-500 font-extrabold  text-white px-2 py-1"
                       onClick={() => {
-                        // Implement logic to increase quantity
+                        cartItem.quantity += 1;
                       }}
                     >
                       +
@@ -83,9 +85,22 @@ const Cart = () => {
               <p>1100</p>
             </div>
           </div>
-          <button className="btn btn-ghost bg-blue-400 w-32">
+          <label for="my_modal_6" class="btn bg-blue-400">
             Place Order
-          </button>
+          </label>
+
+          <input type="checkbox" id="my_modal_6" class="modal-toggle" />
+          <div class="modal" role="dialog">
+            <div class="modal-box">
+              <h3 class="font-bold text-lg">Dear Customer</h3>
+              <p class="py-4">Your Order Has Been Placed Successfully</p>
+              <div class="modal-action">
+                <label for="my_modal_6" class="btn">
+                  Close!
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
