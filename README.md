@@ -21,47 +21,62 @@ ShopKart is a Frontend web app build using ReactJS as an Assignment for Tanx.fi.
 - RealTime updating of Cart items number which was done using React Redux
 - single Page application switching from different components done using Usestate and conditional rendering
 
-
+## Demo Images And Explaination
 The images are related to various aspects of the frontend, including adding items to the cart, alerts, home page, orders, products, signing in, and signing up.
 
-## Image Previews
-
-- **Home Page:**
+**Home Page/Landing Page when clicked on the site :**
 
   ![Home Page](DemoImg/home.png)
 
-- **Sign In:**
-  ![Sign In](DemoImg/signin.png)
+**After Landing to the Home Page, User can click on Sign In/ Sign Up for redirecting to Sign In Page**
 
-- **Sign Up:**
-  ![Sign Up](DemoImg/signup.png)
+- If db.json file has a registered user then signin page shows alert that Mail Id has been already used else User can continue with creating their Account the following is in the below Image.
 
+
+![sign Up](DemoImg/signup.png)
+
+- If User enters Wrong Password / Wrong Credentials, alert will be provided stating about the Wrong Credentials depicted in the below Image.
   
+  
+    ![Sign In](DemoImg/signin.png)
 
-  - **Product:**
+
+**After Signing Up to the website, The Website Automatically Redirects Users to Home Page and their Cart Items will also get Updated,this functionality can be seen in a localhost server but cannot be observed in deployed server due to no server or backend deployed**
+
+**The Demo Image of Products Page is below**
+
+
   ![Product](DemoImg/product.png)
 
-- **Add to Cart Alert:**
+**Users can Directly add the product to the cart by clicking on the cart button on the specific Product,On click of specific product cart icon Users will be alerted telling them that Product has been added to Cart**
+
   ![Add to Cart Alert](DemoImg/addtocartalert.png)
 
-- **Cart:**
+**If Users Want to Take a Closer Look on the Product They Can Click on the Card Image of a specfic Product which then will be redirected to the single Produt Page,Below is the demo Implementation Image**
+
+  ![singleprod](DemoImg/singleprod.png)
+
+**Users can directly Buy or Add to cart even on the Single Product Page,They also have an option to go back to the Products Page**
+
+**When User Clicks on the Cart Page,they will redirected to the cart page where the all the items they have choosed will be displayed and now they can increase the quantity or remove the product from cart and they can also check the total price in real time even when they are changing the quantity**
+
+**Below is the Image when User have Zero Products in their Cart**
+
+  ![emptycart](DemoImg/emptycart.png)
+
+  
+**Now, Below is the Demo Image When Users Have Products in their Cart**
+
   ![Cart](DemoImg/cart.png)
 
-- **Order:**
+
+**After deciding the products and their Quantity Users can Place their Order by Clicking Place Order and on click of that users will get a modal showing success, Below is the Demo Image for said information**
+
+
   ![Order](DemoImg/order.png)
 
+**On click of Close,Users will be redirected to their Home Page with updating their cart Items to Zero and adding them into their Orders History.**
 
 
 
-
-## Folder Structure
-
-- **DemoImg/:**
-  - `addtocartalert.png`: Image for add to cart alert.
-  - `cart.png`: Image for the cart page.
-  - `home.png`: Image for the home page.
-  - `order.png`: Image for the order page.
-  - `product.png`: Image for the product page.
-  - `signin.png`: Image for the sign-in page.
-  - `signup.png`: Image for the sign-up page.
 
