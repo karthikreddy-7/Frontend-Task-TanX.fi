@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "./components/navbar";
 import Products from "./components/products";
+import Home from "./components/home";
 
 const App = () => {
   const [products, setProducts] = useState([]);
   const [scrolling, setScrolling] = useState(false);
+  const [displayproducts, setdisplayproducts] = useState(false);
+  const [displayhome, setdisplayhome] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,26 +47,17 @@ const App = () => {
               : "opacity-100 transform translate-y-0"
           }`}
         >
-          <NavBar />
+          <NavBar
+            setdisplayproducts={setdisplayproducts}
+            setdisplayhome={setdisplayhome}
+          />
         </div>
-
+        {displayhome && <Home />}
+        {displayproducts && <Products products={products} />}
         <div></div>
       </div>
     </>
   );
-  {
-    /*
-          <div className="text-black">
-      <h1>Product List</h1>
-      <ul>
-        {console.log(products)}
-        {products.map((product) => (
-          <li key={product.id}>{product.title}</li>
-        ))}
-      </ul>
-    </div>
-      */
-  }
 };
 
 export default App;
