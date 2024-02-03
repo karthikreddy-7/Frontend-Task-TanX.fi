@@ -11,7 +11,7 @@ const Home = ({ setdisplayproducts, setdisplayhome }) => {
       <div class="hero min-h-screen bg-base-200">
         <div class="hero-content flex-col lg:flex-row-reverse m-10">
           <img src={hero} class=" h-1/4 w-1/2 rounded-lg shadow-xl" />
-          <div>
+          <div className="m-2 p-2">
             <h1 class="text-5xl font-bold">Shopping Made Easy!</h1>
             <p class="py-6 text-xl">
               FrontEnd Task Given By TanX.fi for making a Shopping WebApp Using

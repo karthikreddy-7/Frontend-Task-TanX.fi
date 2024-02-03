@@ -31,7 +31,7 @@ const App = () => {
     <>
       <div className="bg-white ">
         <div
-          className={`fixed bg-blue-400 rounded-xl shadow-md box-border h-16 min-w-[90vw] top-4 left-14 transition-all ${
+          className={`absolute bg-blue-400 rounded-xl shadow-md box-border h-16 min-w-[90vw] top-4 left-14 transition-all ${
             scrolling
               ? "opacity-60 transform -translate-y-10"
               : "opacity-100 transform translate-y-0"

@@ -1,4 +1,5 @@
 import React from "react";
+import cart from "../assets/img/cart.png";
 
 const NavBar = ({ setdisplayproducts, setdisplayhome, setdisplaysignin }) => {
   const handleProductsClick = () => {
@@ -45,6 +46,11 @@ const NavBar = ({ setdisplayproducts, setdisplayhome, setdisplaysignin }) => {
             onClick={handleSignInClick}
           >
             Sign Up/Login{" "}
+          </button>
+          <button>
+            <div className="w-6 h-6 mr-4">
+              <img src={cart} />
+            </div>
           </button>
         </div>
       </div>
