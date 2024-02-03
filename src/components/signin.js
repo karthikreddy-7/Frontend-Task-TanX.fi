@@ -50,7 +50,7 @@ const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
           setAlert(1);
           setTimeout(() => {
             setAlert(0);
-          }, 1500);
+          }, 2500);
           return alert("Email already exists. Please choose a different one.");
         }
 
@@ -68,7 +68,7 @@ const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
         setAlert(4);
         setTimeout(() => {
           setAlert(0);
-        }, 1500);
+        }, 2500);
       })
       .catch((error) => {
         console.error("Error adding user:", error.message);
@@ -102,14 +102,15 @@ const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
           console.log("Login successful!");
           setsignin(true);
           setAlert(3);
+          getdetailsfromuser({ emailId: email });
           setTimeout(() => {
             setAlert(0);
-          }, 1500);
+          }, 2500);
         } else {
           setAlert(2);
           setTimeout(() => {
             setAlert(0);
-          }, 1500);
+          }, 2500);
           alert("Incorrect/Invalid Credentials");
         }
       })
@@ -117,13 +118,29 @@ const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
         console.error("Error fetching users data:", error);
       });
   };
+  const getdetailsfromuser = ({ emailId } = {}) => {
+    // Fetch cart details based on the emailId
+    fetch(`${apiUrl}/users?email=${emailId}`)
+      .then((response) => response.json())
+      .then((userData) => {
+        console.log(userData);
+        const cartItems = userData[0].cart;
+        console.log(cartItems);
+        cartItems.forEach((cartItem) => {
+          dispatch(addToCart(cartItem));
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching cart details:", error);
+      });
+  };
 
   return (
     <div>
       {!signup && (
-        <div class="hero mt-2 min-h-screen bg-base-200">
+        <div class="hero mt-2 min-h-screen">
           <div class="hero-content w-3/4 flex flex-col">
-            <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div class="card shrink-0 w-full max-w-sm shadow-2xl">
               <form class="card-body">
                 <div class="form-control">
                   <label class="label">
@@ -212,9 +229,9 @@ const Signin = ({ setsignin, email, setEmail, password, setPassword }) => {
         </div>
       )}
       {signup && (
-        <div class="hero mt-2 min-h-screen bg-base-200">
+        <div class="hero mt-2 min-h-screen">
           <div class="hero-content w-3/4 flex flex-col">
-            <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div class="card shrink-0 w-full max-w-sm shadow-2xl">
               <form class="card-body" onSubmit={(e) => e.preventDefault()}>
                 <div class="form-control">
                   <label class="label">

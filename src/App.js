@@ -4,8 +4,11 @@ import Products from "./components/products";
 import Home from "./components/home";
 import Signin from "./components/signin";
 import Cart from "./components/Cart";
+import { useDispatch } from "react-redux";
+import { addToCart, addToFavorites, addtotalproducts } from "./redux/action";
 
 const App = () => {
+  const dispatch = useDispatch();
   const [scrolling, setScrolling] = useState(false);
   const [displayproducts, setdisplayproducts] = useState(false);
   const [displayhome, setdisplayhome] = useState(true);
@@ -14,7 +17,26 @@ const App = () => {
   const [signin, setsignin] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const apiUrl = process.env.REACT_APP_API_ENDPOINT || "http://localhost:8000";
+  useEffect(() => {
+    // Use a GET request when fetching data
+    fetch(`${apiUrl}/products`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        dispatch(addtotalproducts(data));
+      })
+      .catch((error) => {});
+  }, [apiUrl]);
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;

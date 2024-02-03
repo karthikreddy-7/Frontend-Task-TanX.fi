@@ -8,9 +8,9 @@ const Home = ({ setdisplayproducts, setdisplayhome }) => {
   };
   return (
     <div className="bg-white flex text-2xl justify-center items-center">
-      <div class="hero min-h-screen bg-base-200">
+      <div class="hero min-h-screen">
         <div class="hero-content flex-col lg:flex-row-reverse m-10">
-          <img src={hero} class=" h-1/4 w-1/2 rounded-lg shadow-xl" />
+          <img src={hero} class=" h-1/4 w-1/2 rounded-lg" />
           <div className="m-2 p-2">
             <h1 class="text-5xl font-bold">Shopping Made Easy!</h1>
             <p class="py-6 text-xl">

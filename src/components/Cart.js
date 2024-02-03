@@ -1,12 +1,90 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
+  const totalItems = useSelector((state) => state.totalProducts.items);
+  const cartItems = useSelector((state) => state.cart.items);
+
+  // Function to get product details for a given productId
+  const getProductDetails = (productId) => {
+    return totalItems[0].find((item) => item.id === productId);
+  };
+
   return (
-    <div class="hero min-h-screen bg-base-200">
-      <div class="hero-content flex-col">
-        <div class="card shrink-0 w-full min-w-[93vw] min-h-[70vh] shadow-2xl bg-base-100 mt-14">
-          <button className="text-2xl p-4 m-2 font-mono font-extrabold">
-            My Cart
+    <div className=" bg-white mt-10 p-4">
+      <div className="hero-content flex-row justify-between items-center gap-4">
+        <div className="card border border-black shrink-0 max-h-[70vh] max-w-[50vw] overflow-y-auto shadow-2xl bg-base-100 mt-10 ml-12 rounded-xl scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-300scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-300">
+          <h1 className="text-2xl font-extrabold flex justify-center font-mono items-center p-3 m-2">
+            MY CART
+          </h1>
+          {cartItems.map((cartItem) => {
+            const productDetails = getProductDetails(cartItem.productId);
+
+            return (
+              <div key={cartItem.productId} className="flex p-4 m-2 border-b">
+                <div className="w-20 h-20 object-contain">
+                  <img
+                    src={productDetails.image}
+                    alt={productDetails.title}
+                    className="object-cover"
+                  />
+                </div>
+                <div className="m-4">
+                  <h2 className="text-lg font-bold p-3">
+                    {productDetails.title}
+                  </h2>
+                  <div className="flex flex-row gap-3 mt-2">
+                    <p>Quantity:</p>
+                    <button
+                      className="bg-blue-500 text-white font-extrabold px-2 py-1 mr-2"
+                      onClick={() => {
+                        // Implement logic to decrease quantity
+                      }}
+                    >
+                      -
+                    </button>
+                    <p> {cartItem.quantity}</p>
+                    <button
+                      className="bg-green-500 font-extrabold  text-white px-2 py-1"
+                      onClick={() => {
+                        // Implement logic to increase quantity
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div className="flex"></div>
+                <br></br>
+              </div>
+            );
+          })}
+        </div>
+        <div className="flex flex-col justify-center items-center">
+          <div className="card  shrink-0 min-h-[40vh] min-w-[30vw] border border-black bg-base-100 m-16  p-3 rounded-xl">
+            <h1 className="text-xl font-extrabold flex justify-center font-mono items-center p-2">
+              Price Details
+            </h1>
+            <div className="flex justify-between items-end m-2 p-1">
+              <p>Price</p>
+              <p>1200</p>
+            </div>
+            <div className="flex justify-between items-end m-2 p-1">
+              <p>Discount Price</p>
+              <p>200</p>
+            </div>
+            <div className="flex justify-between items-end m-2 p-1 ">
+              <p>Delivery charge</p>
+              <p>100</p>
+            </div>
+            <hr className="border-t-2 border-black m-2 p-1"></hr>
+            <div className="flex justify-between items-end m-2 p-1">
+              <p>Total charge</p>
+              <p>1100</p>
+            </div>
+          </div>
+          <button className="btn btn-ghost bg-blue-400 w-32">
+            Place Order
           </button>
         </div>
       </div>

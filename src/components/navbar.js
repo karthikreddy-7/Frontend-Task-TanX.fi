@@ -1,5 +1,6 @@
 import React from "react";
 import cart from "../assets/img/cart.png";
+import { useSelector } from "react-redux";
 
 const NavBar = ({
   setdisplayproducts,
@@ -8,6 +9,8 @@ const NavBar = ({
   setdisplaycart,
   signin,
 }) => {
+  const cartItems = useSelector((state) => state.cart.items);
+  const totalItems = cartItems.reduce((total, item) => total + 1, 0);
   const handleProductsClick = () => {
     setdisplayproducts(true);
     setdisplayhome(false);
@@ -67,11 +70,16 @@ const NavBar = ({
 
           {signin && (
             <button
-              className="btn btn-ghost m-1 font-bold text-white justify-center items-center rounded-full "
+              className="relative btn btn-ghost m-1 font-bold text-white justify-center items-center rounded-full"
               onClick={handlecartclick}
             >
-              <div className="w-6 h-6">
-                <img src={cart} />
+              <div class="indicator">
+                <span class="indicator-item badge badge-secondary">
+                  {totalItems > 0 && <span>{totalItems}</span>}
+                </span>
+                <div className="w-6 h-6">
+                  <img src={cart} alt="Cart Icon" />
+                </div>
               </div>
             </button>
           )}

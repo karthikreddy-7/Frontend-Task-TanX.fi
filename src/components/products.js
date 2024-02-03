@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import cart from "../assets/img/cart.png";
 import fav from "../assets/img/fav.webp";
 import { useDispatch } from "react-redux";
-import { addToCart, addToFavorites } from "../redux/action";
+import { addToCart, addToFavorites, addtotalproducts } from "../redux/action";
+import { useSelector } from "react-redux";
 
 const Products = ({ email }) => {
   const dispatch = useDispatch();
@@ -11,12 +12,19 @@ const Products = ({ email }) => {
   const [producttodisplay, setproducttodisplay] = useState();
   const [alert, setAlert] = useState(0);
   const apiUrl = process.env.REACT_APP_API_ENDPOINT || "http://localhost:8000";
+  const cartItems = useSelector((state) => state.cart);
   const handleAddToCart = (item) => {
+    console.log("Current Cart Items:", cartItems);
     setAlert(1);
     setTimeout(() => {
       setAlert(0);
     }, 1500);
-    dispatch(addToCart(item));
+    const payload = {
+      productId: item.id,
+      quantity: 1, // or any other quantity logic you have
+    };
+
+    dispatch(addToCart(payload));
 
     // Fetch user data
     fetch(`${apiUrl}/users?email=${email}`)
@@ -100,6 +108,7 @@ const Products = ({ email }) => {
       })
       .then((data) => {
         setProducts(data);
+        //dispatch(addtotalproducts(data));
       })
       .catch((error) => {});
   }, [apiUrl]);
@@ -116,7 +125,7 @@ const Products = ({ email }) => {
   };
 
   return (
-    <div className="container mx-auto bg-base-100">
+    <div className="container mx-auto">
       {!showproduct && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 mt-20 m-10">
           {products.map((product) => (
@@ -177,7 +186,7 @@ const Products = ({ email }) => {
       {showproduct && (
         <div className="">
           <div className="bg-white flex text-2xl justify-between items-stretch">
-            <div class="hero min-h-screen bg-base-200">
+            <div class="hero min-h-screen">
               <div class="hero-content flex-col lg:flex-row m-12 mt-20">
                 <img
                   src={producttodisplay.image}
