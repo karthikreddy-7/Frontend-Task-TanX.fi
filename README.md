@@ -1,4 +1,9 @@
-# Frontend-Task-TanX.fi
+
+# ShopKart (Frontend Assignment TanX.fi)
+
+## Overview
+ShopKart is a Frontend web app build using ReactJS as an Assignment for Tanx.fi. 
+### Deployed site without Internal JSON is https://tanxfifrontend.vercel.app/
 
 
 The images are related to various aspects of the frontend, including adding items to the cart, alerts, home page, orders, products, signing in, and signing up.
