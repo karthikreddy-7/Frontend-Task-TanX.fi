@@ -40,19 +40,16 @@ const Products = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto bg-base-100">
       {!showproduct && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 mt-20 m-10">
           {products.map((product) => (
-            <div
-              key={product.id}
-              className="bg-white p-4 rounded-md shadow-md"
-              onClick={() => handlesingleproductclick(product)}
-            >
+            <div key={product.id} className="bg-white p-4 rounded-md shadow-md">
               <img
                 src={product.image}
                 alt={product.title}
                 className="object-cover h-48 w-full mb-4"
+                onClick={() => handlesingleproductclick(product)}
               />
               <p className="text-lg font-bold">T-shirts For Men</p>
               <div className="flex justify-between mt-2">

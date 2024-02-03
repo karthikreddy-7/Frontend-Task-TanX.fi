@@ -1,25 +1,39 @@
 import React from "react";
 import cart from "../assets/img/cart.png";
 
-const NavBar = ({ setdisplayproducts, setdisplayhome, setdisplaysignin }) => {
+const NavBar = ({
+  setdisplayproducts,
+  setdisplayhome,
+  setdisplaysignin,
+  setdisplaycart,
+}) => {
   const handleProductsClick = () => {
     setdisplayproducts(true);
     setdisplayhome(false);
     setdisplaysignin(false);
+    setdisplaycart(false);
   };
   const handleHomeClick = () => {
     setdisplayhome(true);
     setdisplayproducts(false);
     setdisplaysignin(false);
+    setdisplaycart(false);
   };
   const handleSignInClick = () => {
     setdisplayhome(false);
     setdisplayproducts(false);
     setdisplaysignin(true);
+    setdisplaycart(false);
+  };
+  const handlecartclick = () => {
+    setdisplayhome(false);
+    setdisplayproducts(false);
+    setdisplaysignin(false);
+    setdisplaycart(true);
   };
   return (
     <>
-      <div className="flex items-center justify-between ">
+      <div className="flex items-center justify-between  ">
         <div className="flex items-center ml-10">
           <button
             className="text-2xl text-white  font-extrabold font-sans"
@@ -47,8 +61,11 @@ const NavBar = ({ setdisplayproducts, setdisplayhome, setdisplaysignin }) => {
           >
             Sign Up/Login{" "}
           </button>
-          <button>
-            <div className="w-6 h-6 mr-4">
+          <button
+            className="btn btn-ghost m-1 font-bold text-white justify-center items-center rounded-full "
+            onClick={handlecartclick}
+          >
+            <div className="w-6 h-6">
               <img src={cart} />
             </div>
           </button>

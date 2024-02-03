@@ -3,12 +3,14 @@ import NavBar from "./components/navbar";
 import Products from "./components/products";
 import Home from "./components/home";
 import Signin from "./components/signin";
+import Cart from "./components/Cart";
 
 const App = () => {
   const [scrolling, setScrolling] = useState(false);
   const [displayproducts, setdisplayproducts] = useState(false);
   const [displayhome, setdisplayhome] = useState(true);
   const [displaysignin, setdisplaysignin] = useState(false);
+  const [displaycart, setdisplaycart] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +31,7 @@ const App = () => {
 
   return (
     <>
-      <div className="bg-white ">
+      <div className=" bg-base-100 ">
         <div
           className={`absolute bg-blue-400 rounded-xl shadow-md box-border h-16 min-w-[90vw] top-4 left-14 transition-all ${
             scrolling
@@ -41,6 +43,7 @@ const App = () => {
             setdisplayproducts={setdisplayproducts}
             setdisplayhome={setdisplayhome}
             setdisplaysignin={setdisplaysignin}
+            setdisplaycart={setdisplaycart}
           />
         </div>
         {displayhome && (
@@ -51,6 +54,7 @@ const App = () => {
         )}
         {displayproducts && <Products />}
         {displaysignin && <Signin />}
+        {displaycart && <Cart />}
         <div></div>
       </div>
     </>
