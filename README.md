@@ -33,7 +33,7 @@ The images are related to various aspects of the frontend, including adding item
 - If db.json file has a registered user then signin page shows alert that Mail Id has been already used else User can continue with creating their Account the following is in the below Image.
 
 
-    ![Sign Up](DemoImg/signup.png)
+![sign Up](DemoImg/signup.png)
 
 - If User enters Wrong Password / Wrong Credentials, alert will be provided stating about the Wrong Credentials depicted in the below Image.
   
