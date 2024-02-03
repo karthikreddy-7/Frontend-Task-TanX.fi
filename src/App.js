@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import NavBar from "./components/navbar";
 import Products from "./components/products";
 import Home from "./components/home";
+import Signin from "./components/signin";
 
 const App = () => {
   const [scrolling, setScrolling] = useState(false);
   const [displayproducts, setdisplayproducts] = useState(false);
-  const [displayhome, setdisplayhome] = useState(false);
+  const [displayhome, setdisplayhome] = useState(true);
+  const [displaysignin, setdisplaysignin] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,10 +40,17 @@ const App = () => {
           <NavBar
             setdisplayproducts={setdisplayproducts}
             setdisplayhome={setdisplayhome}
+            setdisplaysignin={setdisplaysignin}
           />
         </div>
-        {displayhome && <Home />}
+        {displayhome && (
+          <Home
+            setdisplayproducts={setdisplayproducts}
+            setdisplayhome={setdisplayhome}
+          />
+        )}
         {displayproducts && <Products />}
+        {displaysignin && <Signin />}
         <div></div>
       </div>
     </>

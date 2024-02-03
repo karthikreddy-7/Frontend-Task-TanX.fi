@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import cart from "../assets/img/cart.png";
-import fav from "../assets/fav.webp";
+import fav from "../assets/img/fav.webp";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -53,7 +53,7 @@ const Products = () => {
                 <img src={cart} />
               </div>
               <div className="w-6 h-6">
-                <img src={fav} />
+                <img class="mask mask-heart" src={fav} />
               </div>
             </div>
           </div>

@@ -1,13 +1,20 @@
 import React from "react";
 
-const NavBar = ({ setdisplayproducts, setdisplayhome }) => {
+const NavBar = ({ setdisplayproducts, setdisplayhome, setdisplaysignin }) => {
   const handleProductsClick = () => {
     setdisplayproducts(true);
     setdisplayhome(false);
+    setdisplaysignin(false);
   };
   const handleHomeClick = () => {
     setdisplayhome(true);
     setdisplayproducts(false);
+    setdisplaysignin(false);
+  };
+  const handleSignInClick = () => {
+    setdisplayhome(false);
+    setdisplayproducts(false);
+    setdisplaysignin(true);
   };
   return (
     <>
@@ -33,7 +40,10 @@ const NavBar = ({ setdisplayproducts, setdisplayhome }) => {
           >
             Products
           </button>
-          <button className="btn btn-ghost m-1 font-bold text-white   rounded-full ">
+          <button
+            className="btn btn-ghost m-1 font-bold text-white   rounded-full "
+            onClick={handleSignInClick}
+          >
             Sign Up/Login{" "}
           </button>
         </div>
