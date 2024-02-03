@@ -30,24 +30,26 @@ The images are related to various aspects of the frontend, including adding item
 
 **After Landing to the Home Page, User can click on Sign In/ Sign Up for redirecting to Sign In Page**
 
-- If db.json file has a registered user then signin page shows alert that Mail Id has been already used else User can continue with creating their Account the following is in the below Image
+- If db.json file has a registered user then signin page shows alert that Mail Id has been already used else User can continue with creating their Account the following is in the below Image.
 
 
     ![Sign Up](DemoImg/signup.png)
 
-- If User enters Wrong Password / Wrong Credentials, alert will be provided stating about the Wrong Credentials depicted in the below Image
+- If User enters Wrong Password / Wrong Credentials, alert will be provided stating about the Wrong Credentials depicted in the below Image.
+  
   
     ![Sign In](DemoImg/signin.png)
 
-- **Sign Up:**
+
+**After Signing Up to the website, The Website Automatically Redirects Users to Home Page and their Cart Items will also get Updated,this functionality can be seen in a localhost server but cannot be observed in deployed server due to no server or backend deployed**
+
+**The Demo Image of Products Page is below**
 
 
-  
-
-  - **Product:**
   ![Product](DemoImg/product.png)
 
-- **Add to Cart Alert:**
+**Users can Directly add the product to the cart by clicking on the cart button on the specific Product,On click of specific product cart icon Users will be alerted telling them that Product has been added to Cart**
+
   ![Add to Cart Alert](DemoImg/addtocartalert.png)
 
 - **Cart:**
