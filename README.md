@@ -1,5 +1,13 @@
 ## ShopKart (Frontend Assignment TanX.fi)
 
+## Contact Details
+- Name : B Karthik Reddy
+- email : basupallykarthikreddy@gmail.com
+- College Reg Number : 20BEC0512
+- Phone Number : +91 9063007185
+- Resume Link : <a href="[(https://drive.google.com/file/d/16XL9C_z7bdRHhceEoXvtGdOVxl-JpceN/view?usp=drive_link)]" target="_blank"> Click Here </a>
+- Portfolio Link : <a href="[https://karthikreddy1.com/]" target="_blank"> Click Here </a>
+
 ## Overview
 ShopKart is a Frontend web app build using ReactJS as an Assignment for Tanx.fi. 
 ### Deployed site without Internal JSON Server is https://tanxfifrontend.vercel.app/
